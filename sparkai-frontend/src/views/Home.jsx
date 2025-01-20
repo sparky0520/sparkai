@@ -12,8 +12,8 @@ function Home() {
       {/* Sidebar */}
       <div
         className={`bg-blue-500 flex flex-col absolute top-0 ${
-          sidebar ? "left-[0%]" : "left-[-60%]"
-        } h-full w-[60%] z-10`}
+          sidebar ? "left-[0%]" : "left-[-60%] lg:w-[-30%]"
+        } h-full w-[60%] lg:w-[30%] z-10`}
       >
         <div onClick={toggleSidebar}>close sidebar</div>
         {/* New chat button */}
