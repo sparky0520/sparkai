@@ -4,6 +4,7 @@ import { FormProvider } from "../contexts/form";
 import ContentTypeForm from "./ContentTypeForm";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
+import NewChat from "./NewChat";
 
 function Protected() {
   // Check if user is logged in
@@ -13,6 +14,7 @@ function Protected() {
       <Routes>
         <Route path="/" element={<ContentTypeForm />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/new" element={<NewChat />} />
       </Routes>
     </FormProvider>
   );

@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import pp from "../assets/pp.jpg";
+import TrendWidget from "./components/TrendsWidget";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [sidebar, setSidebar] = useState(false);
@@ -8,7 +10,7 @@ function Home() {
     setSidebar(!sidebar);
   };
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-[100%]">
       {/* Sidebar */}
       <div
         className={`bg-blue-500 flex flex-col absolute top-0 ${
@@ -17,7 +19,9 @@ function Home() {
       >
         <div onClick={toggleSidebar}>close sidebar</div>
         {/* New chat button */}
-        <div>New Chat</div>
+        <Link to={"/new"}>
+          <button>New chat</button>
+        </Link>
         {/* Prev chats */}
         <ul className="flex-1 overflow-scroll">
           <li>ABC</li>
@@ -35,20 +39,41 @@ function Home() {
           <span>User1</span>
         </div>
       </div>
-      <div className="flex justify-between w-full bg-green-500">
+      {/* Header */}
+      <div className="flex justify-between bg-green-500">
         <div onClick={toggleSidebar}>open sidebar</div>
-        <div>sparkAi</div>
-        <div></div>
       </div>
       {/* Chat content */}
-      <div className="flex-1 overflow-scroll">Chat Content</div>
+      <div className="flex-1 overflow-scroll">
+        <div>Trending right now</div>
+        <div>Trends content</div>
+        <div>
+          Parse XML from https://trends.google.com/trending/rss?geo=IN to show
+          the trends{" "}
+        </div>
+      </div>
       {/* Input bar */}
-      <div className="flex justify-center gap-2 w-full bg-black ">
-        <input className="overflow-y-scroll" />
-        <button>send</button>
+      <div className="flex justify-center">
+        <Link to={"/new"}>
+          <button>New chat</button>
+        </Link>
       </div>
     </div>
   );
 }
 
 export default Home;
+
+// {/* Header */}
+// <div className="flex justify-between w-full bg-green-500">
+// <div onClick={toggleSidebar}>open sidebar</div>
+// <div>sparkAi</div>
+// <div></div>
+// </div>
+// {/* Chat content */}
+// <div className="flex-1 overflow-scroll bg-black">Chat Content</div>
+// {/* Input bar */}
+// <div className="flex justify-center gap-2 w-full bg-black ">
+// <input className="overflow-y-scroll" />
+// <button>send</button>
+// </div>
